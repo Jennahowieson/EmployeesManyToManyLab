@@ -33,25 +33,36 @@ class StarterTests {
 	void createEmployeesDepartmentAndProject(){
 		Department engineering = new Department("engineering");
 		departmentRepository.save(engineering);
+		Department finance = new Department("finance");
+		departmentRepository.save(finance);
 
 		Employee eva = new Employee("Eva", "Long", 9087,engineering);
 		employeeRepository.save(eva);
 		Employee john = new Employee("John", "Smith", 9387,engineering);
 		employeeRepository.save(john);
+
+		Employee jane = new Employee("Jane", "Smith", 7387,finance);
+		employeeRepository.save(jane);
 	}
 	@Test
 	public void addEmployeeAndProject() {
+
+		Department engineering = new Department("engineering");
+		departmentRepository.save(engineering);
 
 		Department finance = new Department("finance");
 		departmentRepository.save(finance);
 
 		Employee lewis = new Employee("Lewis", "Burn", 2342,finance);
 		employeeRepository.save(lewis);
+		Employee jane = new Employee("Jane", "Smith", 7387,engineering);
+		employeeRepository.save(jane);
 
 		Project codeclan = new Project("CodeClan", 80);
 		projectRepository.save(codeclan);
 
 		codeclan.addEmployee(lewis);
+		codeclan.addEmployee(jane);
 		projectRepository.save(codeclan);
 	}
 }

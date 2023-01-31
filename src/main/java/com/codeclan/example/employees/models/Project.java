@@ -26,7 +26,7 @@ public class Project {
     @JsonIgnoreProperties({"projects"})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
-            name = "project",
+            name = "employees_projects",
             joinColumns = {@JoinColumn(
                     name = "project_id",
                     nullable = false,
